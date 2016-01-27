@@ -9,7 +9,9 @@ use bip_util::bt::{self, PeerId, InfoHash};
 use bytes::{ByteBuf, MutByteBuf, MutBuf, Buf, Take};
 use mio::{self, EventLoop, EventSet, PollOpt, Token, Handler, TryRead, TryWrite};
 use mio::tcp::{TcpListener, TcpStream};
-use mio::util::{Slab};
+use slab::{self};
+
+type Slab<T> = slab::Slab<T, Token>;
 
 const MAX_CONCURRENT_CONNECTIONS: usize = 1000;
 
@@ -325,7 +327,7 @@ impl<T> HandshakeHandler<T> where T: From<TcpStream> + Send {
             interested: HashMap::new(), connections: Slab::new_starting_at(Token(2), MAX_CONCURRENT_CONNECTIONS) };
         
         // Register our handler
-        try!(event_loop.register(&handler.listener.1, handler.listener.0, EventSet::readable(), PollOpt::level() | PollOpt::oneshot()));
+        try!(event_loop.register(&handler.listener.1, handler.listener.0, EventSet::readable(), PollOpt::edge() | PollOpt::oneshot()));
         
         // Return the handler
         Ok(handler)
@@ -352,7 +354,7 @@ impl<T> HandshakeHandler<T> where T: From<TcpStream> + Send {
                         let connection = self.connections.get(token).unwrap();
                         
                         // Register the connection with our event loop
-                        event_loop.register(connection.evented(), token, connection.event_set(), PollOpt::level() | PollOpt::oneshot()).map_err(|_| token).err()
+                        event_loop.register(connection.evented(), token, connection.event_set(), PollOpt::edge() | PollOpt::oneshot()).map_err(|_| token).err()
                     } else {
                         warn!("bip_handshake: Failed to add a new connection to our slab, already full...");
                         None
@@ -451,11 +453,11 @@ impl<T> HandshakeHandler<T> where T: From<TcpStream> + Send {
     /// Reregister the given token with the event loop to receive its next event.
     fn reregister_token(&mut self, event_loop: &mut EventLoop<HandshakeHandler<T>>, token: Token) {
         let error_occurred = if self.listener.0 == token {
-            event_loop.reregister(&self.listener.1, token, EventSet::readable(), PollOpt::level() | PollOpt::oneshot()).is_err()
+            event_loop.reregister(&self.listener.1, token, EventSet::readable(), PollOpt::edge() | PollOpt::oneshot()).is_err()
         } else {
             match self.connections.get(token) {
                 Some(connection) => {
-                    event_loop.reregister(connection.evented(), token, connection.event_set(), PollOpt::level() | PollOpt::oneshot()).is_err()
+                    event_loop.reregister(connection.evented(), token, connection.event_set(), PollOpt::edge() | PollOpt::oneshot()).is_err()
                 },
                 None => true
             }
@@ -491,7 +493,7 @@ impl<T> Handler for HandshakeHandler<T> where T: From<TcpStream> + Send {
                     self.connections.insert(c).ok()
                 }).and_then(|t| {
                     let connection = self.connections.get(t).unwrap();
-                    event_loop.register(connection.evented(), t, connection.event_set(), PollOpt::level() | PollOpt::oneshot()).ok()
+                    event_loop.register(connection.evented(), t, connection.event_set(), PollOpt::edge() | PollOpt::oneshot()).ok()
                 }).is_some();
                 
                 if !successful {

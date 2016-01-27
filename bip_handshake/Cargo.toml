@@ -15,9 +15,10 @@ license       = "MIT/Apache-2.0"
 
 [dependencies]
 bip_util      = { path = "../bip_util", version = "0.2.0" }
-mio           = "0.5.0"
+mio           = { git = "https://github.com/carllerche/mio.git", branch = "win-fix-oneshot" }
 bytes         = "0.3.0"
 log           = "0.3.0"
+slab          = "0.1.0"
 
 [features]
 unstable      = []
