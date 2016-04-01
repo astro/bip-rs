@@ -12,5 +12,8 @@ keywords    = ["peer", "wire", "protocol", "pwp", "bittorrent"]
 
 license     = "MIT/Apache-2.0"
 
+[dependencies]
+nom = "1.2.0"
+
 [features]
 unstable = []
