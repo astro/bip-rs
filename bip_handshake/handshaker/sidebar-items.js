@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["Handshaker","Trait for providing a handshaker object with connection information."]]});

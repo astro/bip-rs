@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ClientError","Errors occuring as the result of a ClientRequest."]],"type":[["ClientResult","Result type for a ClientRequest."]]});

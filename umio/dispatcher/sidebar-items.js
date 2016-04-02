@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["Dispatcher","Handles events occurring within the event loop."]]});

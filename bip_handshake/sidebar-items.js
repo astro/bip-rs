@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["BTHandshaker","Handshaker that uses the bittorrent handshake protocol."]],"trait":[["Handshaker","Trait for providing a handshaker object with connection information."]],"type":[["InfoHash",""],["PeerId",""]]});

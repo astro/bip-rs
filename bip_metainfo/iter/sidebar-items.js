@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Files","Iterator over each File within the MetainfoFile."],["Paths","Iterator over each file path element within the MetainfoFile."],["Pieces","Iterator over each piece hash within the MetainfoFile."]]});

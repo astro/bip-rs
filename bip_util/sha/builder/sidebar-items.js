@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ShaHashBuilder","Building ShaHash objects by adding byte slices to the hash."]]});

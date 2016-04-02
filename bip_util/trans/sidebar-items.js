@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["TIDGenerator","Generates blocks of transaction ids where each block is shuffled before being used."]]});

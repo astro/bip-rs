@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["BTHandshaker","Handshaker that uses the bittorrent handshake protocol."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ClientResponses","Responses received by a specific TrackerClient."],["ClientResponsesIter","Iterator over responses received by a specific TrackerClient."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ELoop","Wrapper around the main application event loop."],["ELoopBuilder","Builder for specifying attributes of an event loop."]]});

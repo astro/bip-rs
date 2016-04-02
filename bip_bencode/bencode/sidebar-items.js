@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Bencode","Bencode object that holds references to the underlying data."],["BencodeKind","Abstract representation of a Bencode object."]]});

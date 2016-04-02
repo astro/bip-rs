@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["File","Contains information for a single file."],["InfoDictionary","Contains files and checksums for the torrent."],["MetainfoFile","Contains optional and required information for the torrent."]]});

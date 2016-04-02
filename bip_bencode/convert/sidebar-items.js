@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["BencodeConvert","Trait for casting bencode objects and converting conversion errors into application specific errors."]]});

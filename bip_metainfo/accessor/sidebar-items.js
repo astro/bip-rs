@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DirectAccessor","Accessor that pulls data in directly from memory."],["FileAccessor","Accessor that pulls data in from the file system."]],"trait":[["Accessor","Trait for accessing the data used to construct a torrent file."],["IntoAccessor","Trait for types convertible as a Result into some Accessor."]]});

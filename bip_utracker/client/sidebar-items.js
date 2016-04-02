@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ClientRequest","Request made by the TrackerClient."],["ClientResponse","Response received by the TrackerClient."]],"mod":[["error",""],["receiver",""]],"struct":[["ClientToken","Associates a ClientRequest with a ClientResponse."],["TrackerClient","Tracker client that executes requests asynchronously."]]});

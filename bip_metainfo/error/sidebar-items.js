@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ParseErrorKind","Enumerates classes of errors that could have raised a ParseError."]],"struct":[["ParseError","Error raised as a result of parsing a torrent file."]],"type":[["ParseResult","Result of parsing a torrent file."]]});
